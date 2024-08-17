@@ -105,9 +105,15 @@ param_vivencial <- list()
 set.seed( Sys.time() )
 
 # modelo vivencial
-param_vivencial$cp <- -1
-param_vivencial$maxdepth <- sample( 4:10, 1 )
-param_vivencial$minsplit <- sample( 50:500, 1 )
+# 2024-0817 Primera exploración de parámetros basados 
+# en los supuestos de la presentación donde
+#         2 <= 2*minbucket <= minsplit <= #dataset
+#         2 <= max_depth <= 30
+#         -1 <= cp <= 0.1
+# para vivencial dataset #dataset = 329689
+param_vivencial$cp <- -0.05
+param_vivencial$maxdepth <- 5
+param_vivencial$minsplit <- 250
 param_vivencial$minbucket <- sample( 1:(param_vivencial$minsplit/2), 1 )
 gan_vivencial <- generarmodelo( "vivencial", param_vivencial )
 
