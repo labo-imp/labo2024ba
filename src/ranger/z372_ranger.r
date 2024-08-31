@@ -46,10 +46,10 @@ dataset <- fread( miAmbiente$dataset_pequeno )
 
 # asigno un valor muy negativo
 #  estas dos lineas estan relacionadas con el Data Drifting
-if( "Master_Finiciomora" %in% colanames(dataset) )
+if( "Master_Finiciomora" %in% colnames(dataset) )
   dataset[ is.na(Master_Finiciomora) , Master_Finiciomora := -999 ]
 
-if( "Visa_Finiciomora" %in% colanames(dataset) )
+if( "Visa_Finiciomora" %in% colnames(dataset) )
   dataset[ is.na(Visa_Finiciomora) , Visa_Finiciomora :=  -999 ]
 
 # defino donde entreno y donde aplico el modelo
